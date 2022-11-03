@@ -3,12 +3,13 @@ package oracle
 import (
 	"database/sql"
 	"fmt"
-	"gorm.io/gorm/utils"
 	"regexp"
 	"strconv"
 	"strings"
 
-	_ "github.com/godror/godror"
+	"gorm.io/gorm/utils"
+
+	_ "github.com/sijms/go-ora/v2"
 	"github.com/thoas/go-funk"
 	"gorm.io/gorm"
 	"gorm.io/gorm/callbacks"
@@ -52,7 +53,7 @@ func (d Dialector) Initialize(db *gorm.DB) (err error) {
 	// register callbacks
 	callbacks.RegisterDefaultCallbacks(db, &callbacks.Config{WithReturning: true})
 
-	d.DriverName = "godror"
+	d.DriverName = "oracle"
 
 	if d.Conn != nil {
 		db.ConnPool = d.Conn
