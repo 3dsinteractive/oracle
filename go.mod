@@ -1,4 +1,4 @@
-module github.com/cengsin/oracle
+module github.com/3dsinteractive/oracle
 
 go 1.14
 
